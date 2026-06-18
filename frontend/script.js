@@ -128,7 +128,7 @@ async function predictDropout() {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:8001/predict', {
+        const response = await fetch('https://dean-dashboard.onrender.com/predict', {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify(data),
