@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPredict — Dean Analytics Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- Top Rule -->
+<div class="top-rule">
+    <div class="rule-inner">
+        <span>STUDENT RETENTION INTELLIGENCE — AY 2024–25</span>
+        <span class="rule-divider">|</span>
+        <span>MODEL STATUS: <span class="status-active">ACTIVE</span></span>
+        <span class="rule-divider">|</span>
+        <span>LAST UPDATED: <span id="lastUpdated"></span></span>
+    </div>
+</div>
+
+<!-- Topbar -->
+<header class="topbar">
+    <div class="topbar-inner">
+
+        <div class="brand">
+            <div class="brand-mark">EP</div>
+            <div class="brand-text">
+                <span class="brand-name">EduPredict</span>
+                <span class="brand-tag">Dean Analytics Portal</span>
+            </div>
+        </div>
+
+        <nav class="top-nav">
+            <a href="dashboard.html" class="nav-item active">Dashboard</a>
+            <a href="students.html" class="nav-item">Students</a>
+            <a href="index.html" class="nav-item">Prediction Engine</a>
+            <a href="javascript:void(0)" class="nav-item">Analytics</a>
+            <a href="javascript:void(0)" class="nav-item">Reports</a>
+        </nav>
+
+        <div class="topbar-right">
+            <button type="button" class="theme-toggle" id="themeToggle" title="Toggle theme">
+                <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <div class="dean-profile">
+                <div class="avatar">DO</div>
+                <div class="profile-text">
+                    <h4>Dean's Office</h4>
+                    <p>Student Retention Unit</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+            <h5>NAVIGATION</h5>
+            <a href="dashboard.html" class="nav-link active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Dashboard
+            </a>
+            <a href="students.html" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Students
+            </a>
+            <a href="index.html" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Prediction Engine
+            </a>
+            <a href="javascript:void(0)" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                Analytics
+            </a>
+            <a href="javascript:void(0)" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Reports
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <h5>RISK MONITORING</h5>
+            <a href="javascript:void(0)" class="nav-link danger-link">
+                <span class="sidebar-dot danger"></span>
+                High Risk Students
+            </a>
+            <a href="javascript:void(0)" class="nav-link warning-link">
+                <span class="sidebar-dot warning"></span>
+                Medium Risk Students
+            </a>
+            <a href="javascript:void(0)" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                Department Analytics
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="model-status-card">
+                <div class="model-status-header">
+                    <span class="pulse-dot"></span>
+                    <span>CatBoost Model</span>
+                </div>
+                <div class="model-acc">91.2%</div>
+                <div class="model-label">Prediction Accuracy</div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <p class="page-eyebrow">Academic Year 2024–25</p>
+                <h1 class="page-title">Student Retention Dashboard</h1>
+            </div>
+            <div class="page-header-actions">
+                <button type="button" class="btn-outline" onclick="location.href='index.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Run Prediction
+                </button>
+                <button type="button" class="btn-primary" onclick="location.href='students.html'">
+                    View All Students
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Enrollment</div>
+                <div class="stat-value">12,842</div>
+                <div class="stat-sub">University population</div>
+            </div>
+            <div class="stat-card high-risk">
+                <div class="stat-label">
+                    <span class="dot danger"></span>
+                    High Risk
+                </div>
+                <div class="stat-value danger-text">216</div>
+                <div class="stat-sub">Immediate attention required</div>
+            </div>
+            <div class="stat-card medium-risk">
+                <div class="stat-label">
+                    <span class="dot warning"></span>
+                    Medium Risk
+                </div>
+                <div class="stat-value warning-text">743</div>
+                <div class="stat-sub">Under active monitoring</div>
+            </div>
+            <div class="stat-card low-risk">
+                <div class="stat-label">
+                    <span class="dot success"></span>
+                    Low Risk
+                </div>
+                <div class="stat-value success-text">11,883</div>
+                <div class="stat-sub">Stable &amp; on track</div>
+            </div>
+        </section>
+
+        <!-- Main Grid -->
+        <section class="dashboard-grid">
+
+            <!-- Left: High Risk Students -->
+            <div class="left-col">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-eyebrow">IMMEDIATE ACTION REQUIRED</p>
+                            <h2 class="card-title">Students Requiring Attention</h2>
+                        </div>
+                        <button type="button" class="link-btn" onclick="location.href='students.html'">View All →</button>
+                    </div>
+                    <div id="studentContainer"></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+
+                <!-- Department Risk -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-eyebrow">OVERVIEW</p>
+                            <h2 class="card-title">Department Risk</h2>
+                        </div>
+                    </div>
+                    <div class="department-list">
+                        <div class="dept-item">
+                            <div class="dept-info">
+                                <span class="dept-name">B.Tech CSE</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar medium" style="width:18%"></div></div>
+                                <span class="risk-pct medium">18%</span>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-info">
+                                <span class="dept-name">B.Tech IT</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar low" style="width:10%"></div></div>
+                                <span class="risk-pct low">10%</span>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-info">
+                                <span class="dept-name">B.Tech ECE</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar high" style="width:27%"></div></div>
+                                <span class="risk-pct high">27%</span>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-info">
+                                <span class="dept-name">Mechanical</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar high" style="width:31%"></div></div>
+                                <span class="risk-pct high">31%</span>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-info">
+                                <span class="dept-name">Electrical</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar medium" style="width:19%"></div></div>
+                                <span class="risk-pct medium">19%</span>
+                            </div>
+                        </div>
+                        <div class="dept-item last">
+                            <div class="dept-info">
+                                <span class="dept-name">Biotechnology</span>
+                            </div>
+                            <div class="dept-risk-wrap">
+                                <div class="dept-bar-track"><div class="dept-bar low" style="width:12%"></div></div>
+                                <span class="risk-pct low">12%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Risk Factors -->
+                <div class="card" style="margin-top:20px">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-eyebrow">ANALYSIS</p>
+                            <h2 class="card-title">Primary Risk Indicators</h2>
+                        </div>
+                    </div>
+                    <ul class="risk-factors">
+                        <li><span class="factor-num">01</span><span class="factor-text">Low Attendance Rate (&lt; 60%)</span></li>
+                        <li><span class="factor-num">02</span><span class="factor-text">Multiple Academic Backlogs</span></li>
+                        <li><span class="factor-num">03</span><span class="factor-text">Low Cumulative GPA (&lt; 6.5)</span></li>
+                        <li><span class="factor-num">04</span><span class="factor-text">Fee Payment Irregularities</span></li>
+                        <li><span class="factor-num">05</span><span class="factor-text">Academic Disengagement Signals</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Prediction Table -->
+        <section class="card table-card">
+            <div class="card-header">
+                <div>
+                    <p class="card-eyebrow">RECENT ANALYSIS</p>
+                    <h2 class="card-title">Prediction Log</h2>
+                </div>
+                <div class="table-controls">
+                    <div class="search-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="searchBox" class="search-box" placeholder="Search by name, ID, or department…">
+                    </div>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Attendance</th>
+                            <th>CGPA</th>
+                            <th>Risk Score</th>
+                            <th>Classification</th>
+                        </tr>
+                    </thead>
+                    <tbody id="predictionTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+
+            <div class="about-rule">
+                <div class="about-rule-line"></div>
+                <span class="about-rule-label">ABOUT THIS PLATFORM</span>
+                <div class="about-rule-line"></div>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-block about-tool">
+                    <p class="about-eyebrow">THE TOOL</p>
+                    <h2 class="about-heading">Student Dropout Prediction &amp; Management</h2>
+                    <p class="about-body">
+                        EduPredict is an AI-powered early warning system designed to identify students at risk of academic dropout before the situation becomes irrecoverable. The platform continuously analyses academic performance indicators — attendance patterns, CGPA trajectories, backlog accumulation, and fee compliance — to generate individual risk scores for every enrolled student.
+                    </p>
+                    <p class="about-body">
+                        The dashboard enables the Dean's Office and retention coordinators to prioritise outreach, allocate counselling resources efficiently, and track intervention outcomes across all academic departments. Rather than reactive remediation, the platform enables proactive, evidence-based student support.
+                    </p>
+                    <div class="about-tags">
+                        <span class="tag">Early Warning System</span>
+                        <span class="tag">Intervention Management</span>
+                        <span class="tag">Retention Analytics</span>
+                        <span class="tag">Department Risk Mapping</span>
+                    </div>
+                </div>
+
+                <div class="about-divider"></div>
+
+                <div class="about-block about-model">
+                    <p class="about-eyebrow">THE MODEL</p>
+                    <h2 class="about-heading">CatBoost Gradient Boosting Architecture</h2>
+                    <p class="about-body">
+                        At the core of EduPredict is a CatBoost (Categorical Boosting) classification model — a gradient boosting algorithm developed by Yandex, well-suited to structured tabular data with categorical variables. CatBoost handles mixed data types natively, eliminates the need for manual one-hot encoding, and is particularly robust against overfitting on small-to-medium academic datasets.
+                    </p>
+                    <p class="about-body">
+                        The model was trained on multi-year institutional student records, incorporating features such as semester-wise GPA, cumulative attendance, fee payment history, backlog counts, and department-level academic load metrics. The result is a binary classifier that produces a calibrated dropout probability score for each student, updated at regular intervals throughout the academic year.
+                    </p>
+                    <div class="model-specs">
+                        <div class="spec-item">
+                            <span class="spec-value">91.2%</span>
+                            <span class="spec-label">Classification Accuracy</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-value">CatBoost</span>
+                            <span class="spec-label">Algorithm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-value">5+</span>
+                            <span class="spec-label">Feature Dimensions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="about-footer-rule"></div>
+
+            <div class="about-author">
+                <div class="author-avatar">
+                    <span>D</span>
+                </div>
+                <div class="author-info">
+                    <p class="author-eyebrow">DEVELOPED &amp; MAINTAINED BY</p>
+                    <h3 class="author-name">Dean's Office — Student Retention Unit</h3>
+                    <p class="author-desc">
+                        This platform was developed as part of an institutional initiative to leverage machine learning for improving student retention rates. The prediction engine, analytics portal, and intervention tracking tools are maintained by the Student Retention Unit in collaboration with the Department of Computer Science &amp; Engineering. All student data processed within this system is handled in strict accordance with institutional data governance and privacy policies.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <span>© 2025 EduPredict — Dean Analytics Portal</span>
+            <span class="footer-div">|</span>
+            <span>Student Retention Intelligence Platform</span>
+            <span class="footer-div">|</span>
+            <span>Powered by CatBoost ML</span>
+        </footer>
+
+    </main>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

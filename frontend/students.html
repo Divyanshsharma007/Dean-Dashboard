@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPredict — Student Management Portal</title>
+
+    <link rel="stylesheet" href="students.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=EB+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🎓
+        </div>
+
+        <div>
+            <h2>EduPredict</h2>
+            <p>Dean Student Management Portal</p>
+        </div>
+
+    </div>
+
+    <div class="top-actions">
+
+        <button onclick="window.location.href='dashboard.html'">
+            Dashboard
+        </button>
+
+        <button onclick="window.location.href='index.html'">
+            Prediction Engine
+        </button>
+
+        <button id="themeToggle">
+            🌙
+        </button>
+
+    </div>
+
+</header>
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Student Management Center</h1>
+
+        <p>
+            Monitor student retention, academic performance, attendance,
+            and dropout risk indicators across departments. This portal
+            enables university administrators to identify at-risk students
+            and prioritize interventions using AI-powered predictions.
+        </p>
+
+    </section>
+
+    <!-- FILTERS -->
+
+    <section class="filters">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search student name, ID, department..."
+        >
+
+        <select id="departmentFilter">
+            <option value="">All Departments</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EE</option>
+            <option>ME</option>
+        </select>
+
+        <select id="riskFilter">
+            <option value="">All Risk Levels</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+        </select>
+
+    </section>
+
+    <!-- STATS -->
+
+    <section class="quick-stats">
+
+        <div class="stat-box">
+            <h3 id="totalStudents">50</h3>
+            <p>Total Students</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="highRisk">0</h3>
+            <p>High Risk</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="mediumRisk">0</h3>
+            <p>Medium Risk</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="lowRisk">0</h3>
+            <p>Low Risk</p>
+        </div>
+
+    </section>
+
+    <!-- STUDENTS -->
+
+    <section
+        class="student-grid"
+        id="studentGrid"
+    >
+
+        <!-- students.js will populate -->
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section
+        style="
+        margin-top:50px;
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:24px;
+        padding:40px;"
+    >
+
+        <h2
+            style="
+            font-family:'EB Garamond',serif;
+            font-size:36px;
+            margin-bottom:20px;"
+        >
+            About EduPredict
+        </h2>
+
+        <p
+            style="
+            color:var(--text2);
+            line-height:1.8;
+            margin-bottom:20px;"
+        >
+            EduPredict is an AI-powered Student Dropout Prediction &
+            Management platform developed to help educational institutions
+            proactively identify students who may be at risk of leaving
+            their academic programs.
+        </p>
+
+        <p
+            style="
+            color:var(--text2);
+            line-height:1.8;
+            margin-bottom:20px;"
+        >
+            The system utilizes a CatBoost Machine Learning model trained
+            on student academic indicators including attendance,
+            cumulative GPA, academic performance trends, and other
+            institutional data points to estimate dropout probability.
+        </p>
+
+        <p
+            style="
+            color:var(--text2);
+            line-height:1.8;"
+        >
+            The objective is to enable Deans, Academic Advisors,
+            Retention Teams, and University Administrators to take
+            timely corrective action and improve student success
+            outcomes through data-driven interventions.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 EduPredict — Student Dropout Prediction &
+            Management System
+        </p>
+
+        <p>
+            Powered by CatBoost Machine Learning
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="students.js"></script>
+
+</body>
+</html>
